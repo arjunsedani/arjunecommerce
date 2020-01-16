@@ -10,8 +10,6 @@ import {ScrollCards} from './ScrollCards';
 import {HalfImageCard} from './HalfImageCard';
 import {HorizontalScrollContainer} from './HorizontalScrollContainer';
 import { TopBar } from './TopBar';
-import { RNIcon } from './RNIcon';
-
 export {
   Button,
   ListView,
@@ -24,6 +22,5 @@ export {
   ScrollCards,
   HalfImageCard,
   HorizontalScrollContainer,
-  TopBar,
-  RNIcon
+  TopBar
 };
