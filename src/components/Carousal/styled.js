@@ -2,15 +2,41 @@ import {StyleSheet} from 'react-native';
 
 export const caouselStyles = props =>
   StyleSheet.create({
+    scrollContainerStyle: {
+      width: props.width,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    leftContainer: {
+      position: 'absolute',
+      bottom: -30,
+      left: 10
+    },
+    commentContainer: {
+      position: 'absolute',
+      bottom: -30,
+      left: 50
+    },
+    shareContainer: {
+      position: 'absolute',
+      bottom: -30,
+      left: 100
+    },
+    rightContainer: {
+      position: 'absolute',
+      bottom: -30,
+      right: 10
+    },
     scrollIndicatorStyle: {
       position: 'absolute',
-      bottom: 20,
+      bottom: -30,
       flexDirection: 'row',
       alignItems: 'center',
     },
     imageScrollContainerStyle: {
       alignItems: 'center',
-      overflow: 'hidden',
+      // overflow: 'hidden',
       width: props.width,
       height: props.height || 250,
       shadowColor: '#000',
@@ -21,7 +47,7 @@ export const caouselStyles = props =>
       shadowOpacity: 1,
       shadowRadius: 3.84,
       elevation: 5,
-      borderRadius: 10,
+      // borderRadius: 10,
     },
     imageStyle: {
       flex: 1,

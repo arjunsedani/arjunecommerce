@@ -1,6 +1,11 @@
 import React, {PureComponent} from 'react';
 import {ScrollView, Animated, View, Image} from 'react-native';
 import {caouselStyles} from './styled';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+import Feather from 'react-native-vector-icons/Feather';
 
 type Props = {
   images: Array<string>,
@@ -47,11 +52,11 @@ export default class Carousel extends PureComponent<Props, State> {
           key={i}
           opacity={opacity}
           style={{
-            height: 10,
-            width: 10,
-            backgroundColor: "white",
+            height: 7,
+            width: 7,
+            backgroundColor: '#000000',
             margin: 8,
-            borderRadius: 5,
+            borderRadius: 3.5,
           }}
         />
       );
@@ -84,10 +89,30 @@ export default class Carousel extends PureComponent<Props, State> {
               caouselStyles({
                 width,
                 height,
-              }).scrollIndicatorStyle
-            }
-            numberOfLines={3}>
-            {carouselIndicatorArray}
+              }).scrollContainerStyle
+            }>
+            <View  style={caouselStyles({}).leftContainer}>
+              <AntDesign name="hearto" size={25} />
+            </View>
+            <View  style={caouselStyles({}).commentContainer}>
+              <FontAwesome name="comment-o" size={25} />
+            </View>
+            <View  style={caouselStyles({}).shareContainer}>
+              <SimpleLineIcons name="share-alt" size={25} />
+            </View>
+       
+            <View
+              style={
+                caouselStyles({
+                  width,
+                  height,
+                }).scrollIndicatorStyle
+              }>
+              {carouselIndicatorArray}
+            </View>
+            <View style={caouselStyles({}).rightContainer}>
+              <Feather name="bookmark" size={25} />
+            </View>
           </View>
         </View>
       </View>

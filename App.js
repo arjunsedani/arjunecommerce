@@ -21,21 +21,21 @@ import {
   Profile,
   Splash,
   Login,
-  Form,
-  Form2,
+  Zomato,
   Wizard,
+  Instagram
 } from './src/screens';
 // import ViewPagerExample from './src/screens/ViewPager/ViewPagerExample';
 
 const Tabs = createBottomTabNavigator(
   // const AppNavigator = createBottomTabNavigator(
   {
-    Wizard,
-    Form,
+    Instagram,
+    Zomato,
     List,
   },
   {
-    initialRouteName: 'Wizard',
+    initialRouteName: 'Instagram',
     defaultNavigationOptions: ({navigation}) => ({
       headerStyle: {
         backgroundColor: '#f4511e',
@@ -47,11 +47,11 @@ const Tabs = createBottomTabNavigator(
       tabBarIcon: ({focused, tintColor}) => {
         const {routeName} = navigation.state;
         let iconName;
-        if (routeName === 'Wizard') {
+        if (routeName === 'Instagram') {
           iconName = `tasks`;
           return <FontAwesome name={iconName} size={25} color={tintColor} />;
         }
-        if (routeName === 'Form') {
+        if (routeName === 'Zomato') {
           iconName = `medal${focused ? '' : ''}`;
           return <Ionicons name="ios-appstore" size={25} color={tintColor} />;
         }
