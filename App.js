@@ -12,7 +12,9 @@ import {
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 import Icon from 'react-native-vector-icons/Ionicons';
-import activeUser from './src/redux/activeUser/reducer';
+import rootReducer from './src/redux/reducers';
+import currentUser from './src/redux/reducers/currentUser';
+import counter from './src/redux/reducers/counter';
 // import {createEpicMiddleware} from 'redux-observable';
 import thunk from 'redux-thunk';
 import {
@@ -100,6 +102,8 @@ const navReducer = createNavigationReducer(AppNavigator);
 // Combine Reducer for navigation reducer with other reducer
 const appReducer = combineReducers({
   nav: navReducer,
+  currentUser,
+  counter
 });
 
 // Note: createReactNavigationReduxMiddleware must be run before createReduxContainer
@@ -118,8 +122,7 @@ const store = createStore(appReducer, applyMiddleware(middleware, thunk));
 // Container between AppNavigator i.e UI and redux layer for react-navigation
 const App = createReduxContainer(AppNavigator);
 const mapStateToProps = state => ({
-  state: state.nav,
-  activeUser
+  state: state.nav
 });
 const AppWithNavigationState = connect(mapStateToProps)(App);
 
