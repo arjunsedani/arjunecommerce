@@ -19,6 +19,7 @@ import {
   HorizontalScrollContainer,
   TopBar,
   Story,
+  CarouselHooks,
 } from '../../components';
 import ViewPager from '@react-native-community/viewpager';
 import {useSelector, useDispatch} from 'react-redux';

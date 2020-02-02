@@ -20,6 +20,7 @@ import {
   TopBar,
   Avatar,
   Story,
+  CarouselHooks,
 } from '../../components';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -222,6 +223,45 @@ function Zomato(props: Props) {
           })}
         </ScrollView>
         <Spacing vSpacing={10} />
+        <Text>Statistics Carousel:</Text>
+      <CarouselHooks
+        style='stats'
+        itemsPerInterval={3}
+        items={[{
+          label: 'TODAY',
+          value: 1,
+        }, {
+          label: 'THIS WEEK',
+          value: 39,
+        }, {
+          label: 'THIS MONTH',
+          value: 120,
+        }, {
+          label: 'YESTERDAY',
+          value: 3,
+        }, {
+          label: 'LAST WEEK',
+          value: 25,
+        }, {
+          label: 'LAST MONTH',
+          value: 175,
+        }]}
+      />
+      
+      <Text style={{ marginTop: 30, }}>
+        Intro Slides Carousel:
+      </Text>
+      <CarouselHooks
+        style='slide'
+        itemsPerInterval={1}
+        items={[{
+          title: 'Welcome, swipe to continue.',
+        }, {
+          title: 'About feature X.',
+        }, {
+          title: 'About feature Y.',
+        }]}
+      />
       </ScrollView>
     </View>
   );

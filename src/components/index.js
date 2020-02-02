@@ -10,6 +10,7 @@ import {ScrollCards} from './ScrollCards';
 import {HalfImageCard} from './HalfImageCard';
 import {HorizontalScrollContainer} from './HorizontalScrollContainer';
 import { TopBar } from './TopBar';
+import { CarouselHooks } from './CarouselHooks';
 import Story from './Story';
 export {
   Button,
@@ -24,5 +25,6 @@ export {
   HalfImageCard,
   HorizontalScrollContainer,
   TopBar,
-  Story
+  Story,
+  CarouselHooks
 };
