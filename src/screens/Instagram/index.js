@@ -23,6 +23,8 @@ import {
 } from '../../components';
 import ViewPager from '@react-native-community/viewpager';
 import {useSelector, useDispatch} from 'react-redux';
+import ToastExample from './ToastExample';
+import RNUpiPayment from "./UpiPayment.js";
 import allActions from '../../redux/actions';
 
 type Props = {
@@ -73,9 +75,9 @@ function Instagram(props: Props) {
     firstName: 'Arjun',
     lastName: 'Sedani'
   };
-
   useEffect(() => {
     dispatch(allActions.userActions.setUser(user));
+    
   }, []);
   const pages = [0, 1, 2, 3, 4];
   const [firstName, setfirstName] = useState('');
@@ -125,6 +127,18 @@ function Instagram(props: Props) {
   const onPageSelected = (e: PageSelectedEvent) => {
     setPage(e.nativeEvent.position);
   };
+
+  // const playVideo = () => {
+  //   var successCallback;
+  //   var failureCallback;
+  //   ToastExample.show('Awesome', ToastExample.SHORT);
+  //   RNUpiPayment.intializePayment({
+  //     vpa: 'john@upi', // or can be john@ybl or mobileNo@upi
+  //     payeeName: 'John Doe',
+  //     amount: '1',
+  //     transactionRef: 'aasf-332-aoei-fn'
+  //   }, successCallback, failureCallback);
+  // };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -189,6 +203,22 @@ function Instagram(props: Props) {
           // subtitle="Sub title text"
         />
       </ScrollView>
+      <Button   onPress={() => {
+              RNUpiPayment.initializePayment(
+                {
+                  vpa: '7411931500@ybl', // or can be john@ybl or mobileNo@upi
+                  payeeName: 'Arjun Sedani',
+                  amount: '1',
+                  transactionRef: 'aasf-332-aoei-fn',
+                },
+                () => {
+                  alert('Succes');
+                },
+                () => {
+                  alert('Failure');
+                },
+              );
+            }} text="Play Video" />
     </SafeAreaView>
   );
 }
